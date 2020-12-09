@@ -5,6 +5,9 @@
         "ext-json": "^7.4",
         "php": "^7.4"
     },
+    "bin": [
+        "bin/gendiff"
+    ],
     "autoload": {
         "files": [
             "src/gendiff.php"
