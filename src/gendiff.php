@@ -23,6 +23,7 @@ DOC;
         'optionsFirst' => false,
     );
     $args = \Docopt::handle($doc, $params);
-    foreach ($args as $k => $v)
+    foreach ($args as $k => $v) {
         print_r($k . ': ' . json_encode($v) . PHP_EOL);
+    }
 }
