@@ -24,5 +24,5 @@ DOC;
     );
     $args = \Docopt::handle($doc, $params);
     foreach ($args as $k => $v)
-        print_r($k.': '.json_encode($v).PHP_EOL);
+        print_r($k . ': ' . json_encode($v) . PHP_EOL);
 }
