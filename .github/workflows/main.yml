@@ -39,5 +39,6 @@ jobs:
         ls -la
         make install
         make lint
+        make test
         php --version
         composer --version
