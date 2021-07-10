@@ -5,7 +5,7 @@ namespace App;
 use Docopt;
 use Exception;
 
-use function App\GenDiff\genDiff;
+use function App\Differ\genDiff;
 
 function run($doc)
 {

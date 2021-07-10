@@ -10,6 +10,20 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function GenDiff\GenDiff\printHelp;
+use function App\run;
 
-printHelp();
+const DOC = <<<DOC
+Generate diff
+
+Usage:
+	gendiff (-h|--help)
+	gendiff (-v|--version)
+	gendiff [--format <fmt>] <firstFile> <secondFile>
+
+Options:
+	-h --help                     Show this screen
+	-v --version                  Show version
+	--format <fmt>                Report format [default: stylish]
+DOC;
+
+run(DOC);

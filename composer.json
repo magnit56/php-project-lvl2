@@ -2,9 +2,9 @@
     "name": "magnit56/php-project-lvl-2",
     "require": {
         "docopt/docopt": "^1.0",
-        "php": "^8.0",
+        "php": "7.*",
         "symfony/yaml": "^5.2",
-        "tightenco/collect": "^5.7",
+        "tightenco/collect": "*",
         "funct/funct": "^1.5"
     },
     "bin": [
@@ -27,7 +27,7 @@
     ],
     "require-dev": {
         "squizlabs/php_codesniffer": "3.*",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "9.0.0"
     },
     "scripts": {
         "phpcs": "phpcs",
