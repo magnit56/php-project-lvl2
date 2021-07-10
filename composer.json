@@ -2,7 +2,7 @@
     "name": "magnit56/php-project-lvl-2",
     "require": {
         "docopt/docopt": "^1.0",
-        "php": "7.*",
+        "php": "^7.4.0",
         "symfony/yaml": "^5.2",
         "tightenco/collect": "*",
         "funct/funct": "^1.5"
