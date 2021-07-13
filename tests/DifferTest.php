@@ -1,7 +1,6 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use App\Differ;
 
 use function App\Differ\genDiff;
 
