@@ -3,6 +3,7 @@
 namespace App\Renderers;
 
 use function App\Formatters\renderStylish;
+use function App\Formatters\renderPlain;
 
 function render($ast, $format)
 {

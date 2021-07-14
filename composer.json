@@ -16,7 +16,8 @@
             "src/Differ.php",
             "src/Parsers.php",
             "src/Renderers.php",
-            "src/Formatters/stylish.php"
+            "src/Formatters/stylish.php",
+            "src/Formatters/plain.php"
         ]
     },
     "authors": [
