@@ -5,7 +5,8 @@
         "php": "^7.4.0",
         "symfony/yaml": "^5.2",
         "tightenco/collect": "*",
-        "funct/funct": "^1.5"
+        "funct/funct": "^1.5",
+        "ext-json": "*"
     },
     "bin": [
         "bin/gendiff"
@@ -17,7 +18,8 @@
             "src/Parsers.php",
             "src/Renderers.php",
             "src/Formatters/stylish.php",
-            "src/Formatters/plain.php"
+            "src/Formatters/plain.php",
+            "src/Formatters/json.php"
         ]
     },
     "authors": [
