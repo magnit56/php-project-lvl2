@@ -12,7 +12,7 @@ class DifferTest extends TestCase
     protected function setUp(): void
     {
         $this->extentions = ['json'];
-        $this->formats = ['stylish', 'plain'];
+        $this->formats = ['stylish', 'plain', 'json'];
     }
 
     public function testDiffer()
