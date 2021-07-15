@@ -11,7 +11,7 @@ class DifferTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->extentions = ['json'];
+        $this->extentions = ['json', 'yaml'];
         $this->formats = ['stylish', 'plain', 'json'];
     }
 
