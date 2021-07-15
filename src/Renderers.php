@@ -4,6 +4,7 @@ namespace App\Renderers;
 
 use function App\Formatters\renderStylish;
 use function App\Formatters\renderPlain;
+use function App\Formatters\renderJson;
 
 function render($ast, $format)
 {
