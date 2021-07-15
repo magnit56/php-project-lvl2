@@ -12,14 +12,15 @@ Test Coverage:<br>
 <a href="https://codeclimate.com/github/magnit56/php-project-lvl2/test_coverage">
 <img src="https://api.codeclimate.com/v1/badges/6c2e84739140fa1ecc2d/test_coverage" />
 </a>
+<h1>Утилита для сравнения файлов</h1>
 <h1>Установка</h1>
 -установить composer глобально<br>
 -установить утилиту: <code>composer global require magnit56/php-project-lvl2</code><br>
-<h1>Как использовать</h1>
--форматтер stylish (по умолчанию, его можно не указывать)
-<a href="https://asciinema.org/a/vJuRtkLVG8FhEBlCvjGbrGRsu" target="_blank"><img src="https://asciinema.org/a/vJuRtkLVG8FhEBlCvjGbrGRsu.svg" /></a>
-<a href="https://asciinema.org/a/6FQMe7QW8teMYQnPgPbUfNfip" target="_blank"><img src="https://asciinema.org/a/6FQMe7QW8teMYQnPgPbUfNfip.svg" /></a>
--форматтер plain
-<a href="https://asciinema.org/a/xBXjm5dQxoXMOhhFyxwufRx07" target="_blank"><img src="https://asciinema.org/a/xBXjm5dQxoXMOhhFyxwufRx07.svg" /></a>
--форматтер json
-<a href="https://asciinema.org/a/7jXBi4HbwIkZTIQkgqUGt9xyy" target="_blank"><img src="https://asciinema.org/a/7jXBi4HbwIkZTIQkgqUGt9xyy.svg" /></a>
+<h1>Как использовать</h1><br>
+-форматтер stylish (по умолчанию, его можно не указывать)<br>
+<img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/stylish.gif" /><br>
+<img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/default.gif" /><br>
+-форматтер plain<br>
+<img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/plain.gif" /><br>
+-форматтер json<br>
+<img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/json.gif" /><br>
