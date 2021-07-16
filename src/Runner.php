@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace Differ;
 
 use Docopt;
 use Exception;
 
-use function App\Differ\genDiff;
+use function Differ\Differ\genDiff;
 
 function run($doc)
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Differ;
+namespace Differ\Differ;
 
 use Exception;
-use App\Parsers;
-use App\Renderers;
+use Differ\Parsers;
+use Differ\Renderers;
 
-use function App\Renderers\render;
+use function Differ\Renderers\render;
 use function Funct\Collection\union;
 
 const FORMATS = ["stylish", "plain", "json"];

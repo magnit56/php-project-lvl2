@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-use function App\Differ\genDiff;
+use function Differ\Differ\genDiff;
 
 class DifferTest extends TestCase
 {
@@ -25,7 +25,7 @@ class DifferTest extends TestCase
             $after = file_get_contents($pathToAfter);
 
             foreach ($this->formats as $format) {
-                $actual = \App\Differ\genDiff($pathToBefore, $pathToAfter, $format);
+                $actual = genDiff($pathToBefore, $pathToAfter, $format);
 
                 $pathToResult = __DIR__ . "/fixtures/outputData/{$format}/result";
                 $expected = file_get_contents($pathToResult);

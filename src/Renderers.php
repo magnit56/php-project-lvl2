@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Renderers;
+namespace Differ\Renderers;
 
-use function App\Formatters\renderStylish;
-use function App\Formatters\renderPlain;
-use function App\Formatters\renderJson;
+use function Differ\Formatters\renderStylish;
+use function Differ\Formatters\renderPlain;
+use function Differ\Formatters\renderJson;
 
 function render($ast, $format)
 {
