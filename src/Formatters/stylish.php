@@ -34,7 +34,7 @@ function renderStylish($ast)
         }, $ast);
         return implode("\n", ["{", ...$parts, "{$bracketIndent}}"]);
     };
-    return $iter($ast, 1) . "\n";
+    return $iter($ast, 1);
 }
 
 function stringify($part, $depth)
