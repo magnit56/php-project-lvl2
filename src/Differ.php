@@ -7,7 +7,6 @@ use Differ\Parsers;
 use Differ\Renderers;
 
 use function Differ\Renderers\render;
-use function Funct\Collection\union;
 
 const FORMATS = ["stylish", "plain", "json"];
 
@@ -41,7 +40,7 @@ function getAst($before, $after)
     $beforeKeys = array_keys(get_object_vars($before));
     $afterKeys = array_keys(get_object_vars($after));
 
-    $keys = union($beforeKeys, $afterKeys);
+    $keys = array_unique([...$beforeKeys, ...$afterKeys]);
     sort($keys);
 
     $ast = array_map(function ($key) use ($before, $after) {
