@@ -17,10 +17,10 @@ Test Coverage:<br>
 -установить composer глобально<br>
 -установить утилиту: <code>composer global require magnit56/php-project-lvl2</code><br>
 <h1>Как использовать</h1><br>
--форматтер stylish (по умолчанию, его можно не указывать)<br>
+<h2>форматтер stylish (по умолчанию, его можно не указывать)</h2><br>
 <img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/stylish.gif" /><br>
 <img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/default.gif" /><br>
--форматтер plain<br>
+<h2>форматтер plain</h2><br>
 <img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/plain.gif" /><br>
--форматтер json<br>
+<h2>форматтер json</h2>><br>
 <img src="https://raw.githubusercontent.com/magnit56/php-project-lvl2/master/examples/json.gif" /><br>
