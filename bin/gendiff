@@ -10,7 +10,7 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function App\run;
+use function Differ\run;
 
 const DOC = <<<DOC
 Generate diff
