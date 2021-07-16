@@ -1,5 +1,7 @@
 <?php
 
+namespace DifferTest;
+
 use PHPUnit\Framework\TestCase;
 
 use function Differ\Differ\genDiff;
@@ -18,8 +20,8 @@ class DifferTest extends TestCase
     public function testDiffer()
     {
         foreach ($this->extentions as $extention) {
-            $pathToBefore = __DIR__ . "/fixtures/inputData/{$extention}/before.{$extention}";
-            $pathToAfter = __DIR__ . "/fixtures/inputData/{$extention}/after.{$extention}";
+            $pathToBefore = __DIR__ . "/../fixtures/inputData/{$extention}/before.{$extention}";
+            $pathToAfter = __DIR__ . "/../fixtures/inputData/{$extention}/after.{$extention}";
 
             $before = file_get_contents($pathToBefore);
             $after = file_get_contents($pathToAfter);
@@ -27,7 +29,7 @@ class DifferTest extends TestCase
             foreach ($this->formats as $format) {
                 $actual = genDiff($pathToBefore, $pathToAfter, $format);
 
-                $pathToResult = __DIR__ . "/fixtures/outputData/{$format}/result";
+                $pathToResult = __DIR__ . "/../fixtures/outputData/{$format}/result";
                 $expected = file_get_contents($pathToResult);
 
                 $this->assertEquals($expected, $actual);
