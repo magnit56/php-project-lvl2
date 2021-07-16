@@ -1,5 +1,5 @@
 {
-    "name": "magnit56/php-project-lvl-2",
+    "name": "hexlet/code",
     "require": {
         "docopt/docopt": "^1.0",
         "php": "^7.4.0",
