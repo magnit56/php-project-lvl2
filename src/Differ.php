@@ -6,13 +6,14 @@ use Exception;
 use Differ\Parsers;
 use Differ\Renderers;
 
+use phpDocumentor\Reflection\Types\Boolean;
 use function Differ\Renderers\render;
 
 const FORMATS = ["stylish", "plain", "json"];
 
-function genDiff($path1, $path2, $format = "stylish")
+function genDiff(string $path1, string $path2, string $format = "stylish"): string
 {
-    if (!in_array($format, FORMATS)) {
+    if (!in_array($format, FORMATS, true)) {
         throw new Exception("Данный формат не поддерживается программой");
     }
     if (!file_exists($path1)) {
@@ -35,7 +36,7 @@ function genDiff($path1, $path2, $format = "stylish")
     return render($ast, $format);
 }
 
-function getAst($before, $after)
+function getAst(object $before, object $after): array
 {
     $beforeKeys = array_keys(get_object_vars($before));
     $afterKeys = array_keys(get_object_vars($after));
@@ -85,37 +86,37 @@ function getAst($before, $after)
     return $ast;
 }
 
-function isNested($elem1, $elem2, $key)
+function isNested(object $elem1, object $elem2, string $key): bool
 {
     $keyStatus = property_exists($elem1, $key) && property_exists($elem2, $key);
     return $keyStatus ? (is_object($elem1->{$key}) && is_object($elem2->{$key})) : false;
 }
 
-function isAdded($elem1, $elem2, $key)
+function isAdded(object $elem1, object $elem2, string $key): bool
 {
     $keyStatus = !property_exists($elem1, $key) && property_exists($elem2, $key);
     return $keyStatus;
 }
 
-function isDeleted($elem1, $elem2, $key)
+function isDeleted(object $elem1, object $elem2, string $key): bool
 {
     $keyStatus = property_exists($elem1, $key) && !property_exists($elem2, $key);
     return $keyStatus;
 }
 
-function isChanged($elem1, $elem2, $key)
+function isChanged(object $elem1, object $elem2, string $key): bool
 {
     $keyStatus = property_exists($elem1, $key) && property_exists($elem2, $key);
     return $keyStatus ? !equal($elem1->{$key}, $elem2->{$key}) : false;
 }
 
-function isUnchanged($elem1, $elem2, $key)
+function isUnchanged(object $elem1, object $elem2, string $key): bool
 {
     $keyStatus = property_exists($elem1, $key) && property_exists($elem2, $key);
     return $keyStatus ? equal($elem1->{$key}, $elem2->{$key}) : false;
 }
 
-function equal($elem1, $elem2)
+function equal(mixed $elem1, mixed $elem2): bool
 {
     if (is_array($elem1) && is_array($elem2)) {
         return empty(array_diff_assoc($elem1, $elem2));
