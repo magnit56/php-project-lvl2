@@ -6,7 +6,6 @@ use Exception;
 use Differ\Parsers;
 use Differ\Renderers;
 
-use phpDocumentor\Reflection\Types\Boolean;
 use function Differ\Renderers\render;
 
 const FORMATS = ["stylish", "plain", "json"];
