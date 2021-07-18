@@ -2,9 +2,9 @@
 
 namespace Differ\Formatters;
 
-function renderStylish($ast)
+function renderStylish(array $ast): string
 {
-    $iter = function ($ast, $depth) use (&$iter) {
+    $iter = function (array $ast, int $depth) use (&$iter): string {
         $baseIndent = "  ";
         $depthIndent = str_repeat("    ", $depth - 1);
         $indent = $baseIndent . $depthIndent;
@@ -37,7 +37,7 @@ function renderStylish($ast)
     return $iter($ast, 1);
 }
 
-function stringify($part, $depth)
+function stringify(mixed $part, int $depth): string
 {
     $type = gettype($part);
     switch ($type) {

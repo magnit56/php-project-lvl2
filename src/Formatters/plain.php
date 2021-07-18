@@ -2,11 +2,11 @@
 
 namespace Differ\Formatters;
 
-function renderPlain($ast): string
+function renderPlain(array $ast): string
 {
-    $iter = function ($ast, $parents) use (&$iter) {
+    $iter = function (array $ast, array $parents) use (&$iter): string {
         $parts = array_map(
-            function ($part) use ($iter, $parents) {
+            function (array $part) use ($iter, $parents): string {
                 switch ($part['type']) {
                     case 'added':
                         $propertyFullName = getPropertyFullName($part['name'], $parents);
@@ -16,7 +16,7 @@ function renderPlain($ast): string
                         $propertyFullName = getPropertyFullName($part['name'], $parents);
                         return "Property '{$propertyFullName}' was removed";
                     case 'unchanged':
-                        break;
+                        return "";
                     case 'changed':
                         $propertyFullName = getPropertyFullName($part['name'], $parents);
                         $beforeValue = getStringValue($part['beforeValue']);
@@ -35,24 +35,19 @@ function renderPlain($ast): string
     return $iter($ast, []);
 }
 
-function getStringValue($value)
+function getStringValue(mixed $value): string
 {
     $type = gettype($value);
-    switch ($type) {
-        case "boolean":
-            return $value ? "true" : "false";
-        case "NULL":
-            return "null";
-        case "object":
-            return "[complex value]";
-        case "string":
-            return "'{$value}'";
-        default:
-            return $value;
-    }
+    return match ($type) {
+        "boolean" => $value ? "true" : "false",
+        "NULL" => "null",
+        "object" => "[complex value]",
+        "string" => "'{$value}'",
+        default => $value,
+    };
 }
 
-function getPropertyFullName($propertyName, $parents): string
+function getPropertyFullName(string $propertyName, array $parents): string
 {
     return implode(".", [...$parents, $propertyName]);
 }
