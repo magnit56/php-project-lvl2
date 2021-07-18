@@ -7,7 +7,7 @@ use Exception;
 
 use function Differ\Differ\genDiff;
 
-function run($doc)
+function run(string $doc): void
 {
     $args = Docopt::handle($doc, ['version' => 'Version 1.0']);
 
