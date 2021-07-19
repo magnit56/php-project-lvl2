@@ -15,8 +15,6 @@ function renderPlain(array $ast): string
                     case 'deleted':
                         $propertyFullName = getPropertyFullName($part['name'], $parents);
                         return "Property '{$propertyFullName}' was removed";
-                    case 'unchanged':
-                        return "";
                     case 'changed':
                         $propertyFullName = getPropertyFullName($part['name'], $parents);
                         $beforeValue = getStringValue($part['beforeValue']);
@@ -26,6 +24,8 @@ function renderPlain(array $ast): string
                         $propertyName = $part['name'];
                         $childrenParents = [...$parents, $propertyName];
                         return $iter($part['children'], $childrenParents);
+                    default:
+                        return "";
                 }
             },
             $ast
@@ -39,11 +39,13 @@ function getStringValue(mixed $value): string
 {
     $type = gettype($value);
     return match ($type) {
-        "boolean" => $value ? "true" : "false",
+        "boolean" => boolval($value) ? "true" : "false",
         "NULL" => "null",
         "object" => "[complex value]",
         "string" => "'{$value}'",
-        default => $value,
+        "integer", "double" => "{$value}",
+        "array" => "[array]",
+        default => strval($value),
     };
 }
 
