@@ -6,7 +6,7 @@
         "symfony/yaml": "^5.2",
         "tightenco/collect": "*",
         "ext-json": "*",
-        "funct/funct": "^1.5"
+        "lstrojny/functional-php": "^1.17"
     },
     "bin": [
         "bin/gendiff"
