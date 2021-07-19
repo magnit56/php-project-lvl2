@@ -5,7 +5,8 @@
         "php": "^8.0.3",
         "symfony/yaml": "^5.2",
         "tightenco/collect": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "funct/funct": "^1.5"
     },
     "bin": [
         "bin/gendiff"
