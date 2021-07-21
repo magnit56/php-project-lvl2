@@ -46,7 +46,7 @@ function getAst(object $before, object $after): array
         if ($left === $right) {
             return 0;
         }
-        return $left > $right;
+        return $left > $right ? 1 : -1;
     });
 
     $ast = array_map(function ($key) use ($before, $after) {
