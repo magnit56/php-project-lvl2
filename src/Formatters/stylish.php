@@ -42,7 +42,7 @@ function stringify(mixed $part, int $depth): string
     $type = gettype($part);
     switch ($type) {
         case "boolean":
-            return strval($part) ? "true" : "false";
+            return boolval($part) ? "true" : "false";
         case "NULL":
             return "null";
         case "object":
