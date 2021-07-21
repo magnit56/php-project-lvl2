@@ -8,6 +8,8 @@ use Differ\Renderers;
 
 use function Differ\Renderers\render;
 
+//use Functional\Functional;
+
 const FORMATS = ["stylish", "plain", "json"];
 
 function genDiff(string $path1, string $path2, string $format = "stylish"): string
@@ -22,10 +24,10 @@ function genDiff(string $path1, string $path2, string $format = "stylish"): stri
         throw new Exception("Файл {$path2} не существует");
     }
 
-    $data1 = file_get_contents($path1);
+    $data1 = strval(file_get_contents($path1));
     $extension1 = pathinfo($path1, PATHINFO_EXTENSION);
 
-    $data2 = file_get_contents($path2);
+    $data2 = strval(file_get_contents($path2));
     $extension2 = pathinfo($path2, PATHINFO_EXTENSION);
 
     $before = Parsers\parse($data1, $extension1);
@@ -41,7 +43,10 @@ function getAst(object $before, object $after): array
     $afterKeys = array_keys(get_object_vars($after));
 
     $keys = array_unique([...$beforeKeys, ...$afterKeys]);
-    sort($keys);
+    $sortedKeys = call_user_func(function (array $a): array {
+        sort($a);
+        return $a;
+    }, $keys);
 
     $ast = array_map(function ($key) use ($before, $after) {
         if (isAdded($before, $after, $key)) {
@@ -81,7 +86,7 @@ function getAst(object $before, object $after): array
                 'value' => $before->{$key}
             ];
         }
-    }, $keys);
+    }, $sortedKeys);
     return $ast;
 }
 
@@ -118,7 +123,7 @@ function isUnchanged(object $elem1, object $elem2, string $key): bool
 function equal(mixed $elem1, mixed $elem2): bool
 {
     if (is_array($elem1) && is_array($elem2)) {
-        return empty(array_diff_assoc($elem1, $elem2));
+        return array_diff_assoc($elem1, $elem2) === array();
     }
     return $elem1 === $elem2;
 }
