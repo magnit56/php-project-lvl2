@@ -5,10 +5,9 @@ namespace Differ\Differ;
 use Exception;
 use Differ\Parsers;
 use Differ\Renderers;
+use Functional\Functional;
 
 use function Differ\Renderers\render;
-
-//use Functional\Functional;
 
 const FORMATS = ["stylish", "plain", "json"];
 
@@ -43,10 +42,12 @@ function getAst(object $before, object $after): array
     $afterKeys = array_keys(get_object_vars($after));
 
     $keys = array_unique([...$beforeKeys, ...$afterKeys]);
-    $sortedKeys = call_user_func(function (array $a): array {
-        sort($a);
-        return $a;
-    }, $keys);
+    $sortedKeys = \Functional\sort($keys, function ($left, $right, $collection) {
+        if ($left === $right) {
+            return 0;
+        }
+        return $left > $right;
+    });
 
     $ast = array_map(function ($key) use ($before, $after) {
         if (isAdded($before, $after, $key)) {
