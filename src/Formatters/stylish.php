@@ -42,7 +42,7 @@ function stringify(mixed $part, int $depth): string
     $type = gettype($part);
     switch ($type) {
         case "boolean":
-            return $part ? "true" : "false";
+            return strval($part) ? "true" : "false";
         case "NULL":
             return "null";
         case "object":
@@ -60,6 +60,6 @@ function stringify(mixed $part, int $depth): string
             $lastString = "{$bracketIndent}}";
             return implode("\n", [$firstString, ...$elements, $lastString]);
         default:
-            return $part;
+            return strval($part);
     }
 }
