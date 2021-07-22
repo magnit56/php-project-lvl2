@@ -2,6 +2,8 @@
 
 namespace Differ\Formatters;
 
+use Ds\Map;
+
 function renderStylish(array $ast): string
 {
     $iter = function (array $ast, int $depth) use (&$iter): string {
@@ -51,11 +53,16 @@ function stringify(mixed $part, int $depth): string
             $indent = $baseIndent . $depthIndent;
             $bracketIndent = $depthIndent;
 
-            $elements = [];
-            foreach ($part as $key => $value) {
+            $map = new Map($part);
+            $elements = $map->map(function (mixed $key, mixed $value) use ($depth, $indent): string {
                 $item = stringify($value, $depth + 1);
-                $elements[] = "{$indent}  {$key}: {$item}";
-            }
+                return "{$indent}  {$key}: {$item}";
+            })->toArray();
+//            $elements = [];
+//            foreach ($part as $key => $value) {
+//                $item = stringify($value, $depth + 1);
+//                $elements[] = "{$indent}  {$key}: {$item}";
+//            }
             $firstString = "{";
             $lastString = "{$bracketIndent}}";
             return implode("\n", [$firstString, ...$elements, $lastString]);
