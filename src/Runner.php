@@ -12,10 +12,8 @@ function run(string $doc): void
     $args = Docopt::handle($doc, ['version' => 'Version 1.0']);
 
     try {
-        $difference = genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']);
-        print_r($difference);
+        print_r(genDiff($args['<firstFile>'], $args['<secondFile>'], $args['--format']));
     } catch (Exception $exception) {
         print_r($exception->getMessage());
-        exit(1);
     }
 }
