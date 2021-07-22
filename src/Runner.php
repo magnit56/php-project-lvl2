@@ -15,5 +15,5 @@ function run(string $doc): void
     } catch (Exception $exception) {
         $output = $exception->getMessage();
     }
-    print_r($output);
+    echo $output;
 }
