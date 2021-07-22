@@ -53,16 +53,12 @@ function stringify(mixed $part, int $depth): string
             $indent = $baseIndent . $depthIndent;
             $bracketIndent = $depthIndent;
 
-            $map = new Map($part);
+            $map = new Map(get_object_vars($part));
             $elements = $map->map(function (mixed $key, mixed $value) use ($depth, $indent): string {
                 $item = stringify($value, $depth + 1);
                 return "{$indent}  {$key}: {$item}";
-            })->toArray();
-//            $elements = [];
-//            foreach ($part as $key => $value) {
-//                $item = stringify($value, $depth + 1);
-//                $elements[] = "{$indent}  {$key}: {$item}";
-//            }
+            })->values()->toArray();
+
             $firstString = "{";
             $lastString = "{$bracketIndent}}";
             return implode("\n", [$firstString, ...$elements, $lastString]);
